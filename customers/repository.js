@@ -10,7 +10,6 @@ customerRepository.getCustomers = async () => {
 
         console.log(customers);
     } catch (error) {
-        throw error;
     }
 
     return customers;

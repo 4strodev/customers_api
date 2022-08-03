@@ -9,4 +9,10 @@ const pool = mysql.createPool({
 
 const promisePool = pool.promise();
 
+promisePool.getConnection((error, connection) => {
+    if (error) {
+        throw error;
+    }
+})
+
 module.exports = promisePool;
