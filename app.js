@@ -1,5 +1,6 @@
 const express = require('express');
 const dotenv = require('dotenv');
+dotenv.config();
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
@@ -8,7 +9,7 @@ const customersRouter = require('./customers/router');
 
 const app = express();
 
-dotenv.config()
+
 
 app.use(logger('dev'));
 app.use(express.json());

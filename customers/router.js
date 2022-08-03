@@ -1,12 +1,17 @@
 const express = require('express');
 const router = express.Router();
-const { getUser } = require("./controller")
+const { listCustomers, getCustomer, createCustomer, deleteCustomer, updateCustomer } = require("./controller");
+const { validateId } = require("./middlewares");
 
 /* GET users listing. */
-router.get('/', getUser);
+router.get('/', listCustomers);
 
-router.get('/:id', (req, res) => {
-    res.send('TODO send single customer');
-})
+router.get('/:id', validateId, getCustomer);
+
+router.put('/:id', validateId, updateCustomer);
+
+router.post('/', createCustomer);
+
+router.delete('/:id', validateId, deleteCustomer);
 
 module.exports = router;
